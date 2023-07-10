@@ -1,2 +1,2 @@
 #!/bin/bash
-cat list | sort | uniq -c | grep -e '1' | cut -d ' ' -f8
+cat list | sort | uniq -c | grep -e '1' | sed 's/^[[:space:]]*[[:digit:]]*[[:space:]]*//'
