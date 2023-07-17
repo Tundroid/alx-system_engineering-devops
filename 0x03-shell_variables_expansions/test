@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Get the piped input
+input=$(cat)
+
+# Do something with the piped input
+if [ -n "$input" ]; then
+    echo "The piped input is: $input"
+else
+    echo "There is no piped input"
+fi
