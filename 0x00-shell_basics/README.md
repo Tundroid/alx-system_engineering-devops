@@ -28,7 +28,7 @@ Jul 5, 2023 4:00 AM to Jul 6, 2023 4:00 AM.
 ### Details
 
 - *All tasks are completed without using ``backticks (`)``, `&&`, `||` or `;`*
-- *All bash scripts contain only two lines, line 1 (`#!/bin/bash`) and line 2 for the command(s)*
+- *All bash scripts contain only two lines; line 1 (`#!/bin/bash`) and line 2 for the command(s)*
 
 | Task | File(s) | Description |
 |---|---|---|
