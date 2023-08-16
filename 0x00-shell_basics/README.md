@@ -21,7 +21,7 @@ Jul 5, 2023 4:00 AM to Jul 6, 2023 4:00 AM.
 - Make sure to have executable permission on each bash script
   - You can make script executable using `chmod u+x script_file_name`
 
-### Executing program
+### Executing script
 
 - `./script_file_name`
 
