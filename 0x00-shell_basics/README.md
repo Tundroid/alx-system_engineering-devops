@@ -51,7 +51,7 @@ Jul 5, 2023 4:00 AM to Jul 6, 2023 4:00 AM.
 | 16. Clean Emacs | [101-clean_emacs](101-clean_emacs) | Deletes all files in the current working directory that end with the character `~` |
 | 17. Tree | [102-tree](102-tree) | Creates the directories `welcome/`, `welcome/to/` and `welcome/to/school` in the current directory using only two spaces in command |
 | 18. Life is a series of commas, not periods | [103-commas](103-commas) | Lists all the files and directories of the current directory, separated by commas (`,`).<br>- Directory names end with a slash (`/`)<br>- Files and directories starting with a dot (`.`) are listed<br>- The listing is alpha ordered, except for the directories `.` and `..` which are listed at the very beginning<br>- Only digits and letters are used to sort; Digits come first<br>- The listing ends with a new line |
-| 19. File type: School | [school.mgc](school.mgc)<br>[school.magic](school.magic) | Creates a magic file `school.mgc` (by compiling `school.magic` file) that can be used with the command `file` to detect `School` data files. `School` data files always contain the string `SCHOOL` at offset 0. |
+| 19. File type: School | [school.mgc](school.mgc)<br>[school](school)<br>[19-create_magic_file](19-create_magic_file) | Creates a magic file `school.mgc` (by compiling `school` file) that can be used with the command `file` to detect `School` data files. `School` data files always contain the string `SCHOOL` at offset 0. |
 
 ## Authors
 
