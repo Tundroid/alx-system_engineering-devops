@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#enless loop trapping TERM signal
+#enless loop trapping signals
 
 file="/var/run/myscript.pid"
 
