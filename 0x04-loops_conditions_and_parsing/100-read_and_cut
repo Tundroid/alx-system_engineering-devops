@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Na comment be this
+
+file="/etc/passwd"
+while IFS= read -r line;
+do
+	username=$(echo "$line" | cut -d':' -f1)
+	userid=$(echo "$line" | cut -d':' -f3)
+	home=$(echo "$line" | cut -d':' -f6)
+	echo "$username:$userid:$home"
+done < "$file"
