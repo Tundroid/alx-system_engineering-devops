@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#Na comment be this
+#list contents of a directory ignoring characters
+#before and including the first hyphen
 
 list="$(ls)"
 for file in $list;

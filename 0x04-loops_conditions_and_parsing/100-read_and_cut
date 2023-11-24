@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Na comment be this
+#reads the /etc/passwd file displaying some fields
 
 file="/etc/passwd"
 while IFS= read -r line;

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Na comment be this
+#prints 'Best School' 10 times using until loop
 
 i=0
 until [ $i -eq 10 ]

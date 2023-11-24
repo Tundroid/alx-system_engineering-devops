@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#parses apache access log file printing
+#count of ip address, ip address and status code
+#sorted in asc order of count
+
+file="apache-access.log"
+awk -F' ' '{print $1, $9}' "$file" | sort | uniq -c | sort -rn

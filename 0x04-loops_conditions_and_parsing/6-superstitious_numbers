@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#Na comment be this
+#prints 1 to 20 along with some text
+#if some cases are caught
 
 i=1
 while [ $i -le 20 ]

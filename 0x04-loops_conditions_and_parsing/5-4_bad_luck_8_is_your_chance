@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-#Na comment be this
+#loops 10 times printing 'Best School'
+#while the loop is not running the 4th or
+#while 8th time else it prints 'bad luck'
+#or 'good luck' respectively
 
 i=0
 while [ $i -lt 10 ]

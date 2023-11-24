@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#Na comment be this
+#parses apache access log file printing
+#ip address and status code
 
 file="apache-access.log"
 awk -F' ' '{print $1, $9}' "$file"

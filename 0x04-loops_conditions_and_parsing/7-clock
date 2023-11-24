@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Na comment be this
+#prints hours and minutes from 0-12 and 1-59 respectively
 
 hour=0
 while [ $hour -le 12 ]

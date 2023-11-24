@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#Na comment be this
+#prints 'Best School' 10 times using while loop
+#also prints 'Hi' after the 9th print of 'Best School'
 
 i=0
 while [ $i -lt 10 ]

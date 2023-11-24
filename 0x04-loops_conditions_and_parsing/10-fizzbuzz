@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-#Na comment be this
+#prints 1 to 100 but will replace a number
+#with FizzBuzz if is a multiple of 3 and 5
+#Buzz if is a multiple of 5 only
+#and Fizz if is a multiple of 3 only
 
 i=1
 while [ $i -le 100 ]
