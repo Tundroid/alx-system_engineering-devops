@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#Na comment be this
+
+file="/etc/passwd"
+while IFS= read -r line;
+do
+	username=$(echo "$line" | cut -d':' -f1)
+	userid=$(echo "$line" | cut -d':' -f3)
+	home=$(echo "$line" | cut -d':' -f6)
+	groupid=$(echo "$line" | cut -d':' -f4)
+	password=$(echo "$line" | cut -d':' -f2)
+	command=$(echo "$line" | cut -d':' -f7)
+	story="The user $username is part of the $groupid gang, \
+lives in $home and rides $command. \
+$userid's place is protected by the passcode $password, \
+more info about the user here: $username"
+	echo "$story"
+done < "$file"
