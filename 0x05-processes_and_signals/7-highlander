@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#enless loop
+
+#SIGTERM handler
+on_sigterm()
+{
+	echo "I am invincible!!!"
+}
+
+#register signal handler
+trap on_sigterm TERM
+
+while true;
+do
+	echo To infinity and beyond
+	sleep 2
+done
