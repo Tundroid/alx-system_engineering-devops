@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#enless loop trapping TERM signal
+
+file="/var/run/myscript.pid"
+
+#SIGQUIT handler
+on_sigquit()
+{
+	rm "$file"
+	exit
+}
+
+#SIGTERM handler
+on_sigterm()
+{
+	echo I hate the kill command
+	on_sigquit
+}
+
+#SIGINT handler
+on_sigint()
+{
+	echo Y U no love me?!
+}
+
+#register signal handlers
+trap on_sigterm TERM
+trap on_sigint INT
+trap on_sigquit QUIT
+
+echo $$ > "$file"
+
+while true;
+do
+	echo To infinity and beyond
+	sleep 2
+done
