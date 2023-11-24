@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#echo pid and 'bash' for all batch processes without using ps
+
+pgrep bash -l
