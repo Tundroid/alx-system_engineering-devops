@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#echo processes with hierarchy
+
+ps aux --forest
