@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#enless loop
+#enless loop trapping TERM signal
 
 #SIGTERM handler
 on_sigterm()
