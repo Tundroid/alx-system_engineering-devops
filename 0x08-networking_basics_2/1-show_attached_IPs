@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#show active IPv4 addresses on host
+
+ifconfig | grep -oP 'inet \K\S+' | grep -E '([0-9]{1,3}\.){3}[0-9]{1,3}'
