@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Displays network statistics for programs listening
+
+netstat --program --listening
