@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Connects to server through SSH with identity file ~/.ssh/school
 
-ssh -i ~/.ssh/school ubuntu@52.87.219.229
+ssh -i ~/.ssh/school ubuntu@35.175.132.210
