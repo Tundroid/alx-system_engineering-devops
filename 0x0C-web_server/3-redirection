@@ -25,7 +25,7 @@ SERVER_CONFIG=\
 export CONFIG="/etc/nginx/sites-enabled/default"
 export BACKUP_DIR="./alx/nginx/server_conf"
 mkdir $BACKUP_DIR -p
-sudo cp $CONFIG $BACKUP_DIR"/default_"$(date +%Y%m%d%H%M%S).bak
+sudo cp $CONFIG $BACKUP_DIR"/default_$(date +%Y%m%d%H%M%S).bak"
 echo "$SERVER_CONFIG" > $CONFIG
 
 if [ "$(pgrep -c nginx)" -le 0 ]; then
