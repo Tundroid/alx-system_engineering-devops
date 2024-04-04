@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Installs, configures, and starts the server
 
-apt-get update
+apt-get -y update
 apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 mkdir -p /var/www/html/
@@ -18,11 +18,15 @@ SERVER_CONFIG=\
 		try_files \$uri \$uri/ =404;
 	}
 	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
+		rewrite ^ https://moleculesoft.net permanent;
 	}
 }"
 
-bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+export CONFIG="/etc/nginx/sites-enabled/default"
+export BACKUP_DIR="./alx/nginx/server_conf"
+mkdir $BACKUP_DIR -p
+sudo cp $CONFIG $BACKUP_DIR"/default_"$(date +%Y%m%d%H%M%S).bak
+echo "$SERVER_CONFIG" > $CONFIG
 
 if [ "$(pgrep -c nginx)" -le 0 ]; then
 	service nginx start
