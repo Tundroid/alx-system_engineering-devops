@@ -1,27 +1,41 @@
 #!/usr/bin/env bash
-# sets up a new 404 error page
+# Installs, configures, and starts nginx web server
+# Adds 404 error page
 
-sudo apt-get update
-sudo apt-get install -y nginx 
-echo "Hello World!" > index.html
-sudo mv index.html /var/www/html
+### Temporal env variable(s) ####
+export WEB_ROOT="/var/www/html/"
+export CONFIG="/etc/nginx/sites-enabled/default"
+export BACKUP_DIR="./alx/nginx/server_conf"
 
+apt-get -y update # update repository
+apt-get -y install nginx # install server
+ufw allow 'Nginx HTTP' # allow port 80 for Nginx
+mkdir -p $WEB_ROOT # create room directory
+echo "Hello World!" > $WEB_ROOT/index.html # create index page
+echo "Ceci n'est pas une page" > $WEB_ROOT/404.html # create not found error page
 
-echo "Ceci n'est pas une page" > 404.html
-sudo mv 404.html /var/www/html
-echo "server {
-   listen 80 default_server;
-   listen [::]:80 default_server;
-   
-   root /var/www/html;
-   index index.html;
-   location /redirect_me {
-      return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-   }
-   error_page 404 /404.html;
-   location = /404.html{
-      internal;
-   }
-}" > default
-sudo mv -f default /etc/nginx/sites-available/default
-sudo service nginx restart
+### New server config ###
+SERVER_CONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root $WEB_ROOT;
+	index index.html;
+	location /redirect_me {
+		return 301 https://moleculesoft.net;
+	}
+	error_page 404 /404.html;
+	location = /404.html {
+		internal;
+	}
+}"
+
+### Backup server config ###
+mkdir $BACKUP_DIR -p
+sudo cp $CONFIG $BACKUP_DIR"/default_$(date +%Y%m%d%H%M%S).bak"
+
+### Update server config ###
+echo "$SERVER_CONFIG" > $CONFIG
+
+### Start / restart server service ###
+service nginx restart

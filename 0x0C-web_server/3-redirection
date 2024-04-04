@@ -1,35 +1,36 @@
 #!/usr/bin/env bash
-# Installs, configures, and starts the server
+# Installs, configures, and starts nginx web server
+# Adds redirection for /redirect_me
 
-apt-get -y update
-apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-mkdir -p /var/www/html/
-sudo chmod -R 755 /var/www
-echo 'Hello World!' > /var/www/html/index.html
+### Temporal env variable(s) ####
+export WEB_ROOT="/var/www/html/"
+export CONFIG="/etc/nginx/sites-enabled/default"
+export BACKUP_DIR="./alx/nginx/server_conf"
+
+apt-get -y update # update repository
+apt-get -y install nginx # install server
+ufw allow 'Nginx HTTP' # allow port 80 for Nginx
+mkdir -p $WEB_ROOT # create room directory
+echo "Hello World!" > $WEB_ROOT/index.html # create index page
+
+### New server config ###
 SERVER_CONFIG=\
 "server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
-	server_name _;
-	location / {
-		try_files \$uri \$uri/ =404;
-	}
-	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://moleculesoft.net permanent;
+	root $WEB_ROOT;
+	index index.html;
+	location /redirect_me {
+		return 301 https://moleculesoft.net;
 	}
 }"
 
-export CONFIG="/etc/nginx/sites-enabled/default"
-export BACKUP_DIR="./alx/nginx/server_conf"
+### Backup server config ###
 mkdir $BACKUP_DIR -p
 sudo cp $CONFIG $BACKUP_DIR"/default_$(date +%Y%m%d%H%M%S).bak"
+
+### Update server config ###
 echo "$SERVER_CONFIG" > $CONFIG
 
-if [ "$(pgrep -c nginx)" -le 0 ]; then
-	service nginx start
-else
-	service nginx restart
-fi
+### Start / restart server service ###
+service nginx restart

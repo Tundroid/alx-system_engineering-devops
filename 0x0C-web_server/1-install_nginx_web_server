@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
-# installs nginx and configures it on a remote server
+# Installs and starts nginx web server
+# Add index.html page
 
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-service nginx start
+### Temporal env variable(s) ####
+export WEB_ROOT="/var/www/html/"
+
+apt-get -y update # update repository
+apt-get -y install nginx # install server
+ufw allow 'Nginx HTTP' # allow port 80 for Nginx
+mkdir -p $WEB_ROOT # create room directory
+echo "Hello World!" > $WEB_ROOT/index.html # create index page
+
+### Start / restart server service ###
+service nginx restart
