@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # dump all mysql DBs and compress with current date
 
-
-mysqldump --all-databases -u root --password="$1" > backup.sql
+mysqldump -u root --password=$1 --all-databases > backup.sql
 tar -czvf "$(date +'%d-%m-%Y').tar.gz" backup.sql
