@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # using su to run whoami
 
 sudo -u $1 whoami
